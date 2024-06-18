@@ -17,6 +17,7 @@ def add_album(req):
 
 def edit_album(req, id):
   album = Album.objects.get(pk = id)
+
   if req.method == 'POST':
     form = AlbumForm(req.POST, instance = album)
 
@@ -27,3 +28,7 @@ def edit_album(req, id):
     form = AlbumForm(instance = album)
 
   return render(req, 'album/edit_album.html', {'form': form})
+
+def delete_album(req, id):
+  Album.objects.get(pk = id).delete()
+  return redirect('home')
