@@ -4,6 +4,38 @@
 
 {% block maincontent %}
   <section class="container py-5">
-    hi
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Musician Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Album Rating</th>
+          <th scope="col">Instrument Type</th>
+          <th scope="col">Release Date</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for album in albums %}
+          <tr>
+            <th scope="row">{{album.id}}</th>
+            <td>{{album.musician.first_name}} {{album.musician.last_name}}</td>
+            <td>{{album.musician.email}}</td>
+            <td>{{album.rating}}</td>
+            <td>{{album.musician.instrument_type}}</td>
+            <td>{{album.release_date}}</td>
+            <td>
+              <button class="btn btn-sm btn-warning">
+                <a class="nav-link" href="#">Edit</a>
+              </button>
+              <button class="btn btn-sm btn-danger">
+                <a class="nav-link" href="#">Delete</a>
+              </button>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </section>
 {% endblock %}
