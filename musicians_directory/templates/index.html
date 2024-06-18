@@ -27,7 +27,7 @@
             <td>{{album.release_date}}</td>
             <td>
               <button class="btn btn-sm btn-warning">
-                <a class="nav-link" href="#">Edit</a>
+                <a class="nav-link" href="{% url 'edit-album' album.id %}">Edit</a>
               </button>
               <button class="btn btn-sm btn-danger">
                 <a class="nav-link" href="#">Delete</a>
